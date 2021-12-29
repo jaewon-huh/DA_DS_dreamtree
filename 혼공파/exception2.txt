@@ -1,0 +1,25 @@
+ #예외 객체 : except 예외의 종류 as 예외객체를 활용할 변수 이름 
+try :
+    a = [273,103,52,57,100]
+    number_input_a = int(input("정수입력>(0~4까지 입력해주세요) "))
+    print(a[number_input_a])
+except Exception as e: 
+    if type(e) == ValueError :
+        print("값에 문제가 있습니다")
+    elif type(e) == IndexError :
+        print("0~4를 입력해주세요 .")
+
+#예외 구분하기 
+try :
+    a = [273,103,52,57,100]
+    number_input_a = int(input("정수입력>(0~4까지 입력해주세요) "))
+    print(a[number_input_a])
+except ValueError as e: 
+    print("값에 문제가 있습니다")
+except IndexError as e: 
+    print("0~4를 입력해주세요 .")
+except Exception as e:  # !! 모든 예외의 부모격이므로 포함 
+    print("알수없는 예외가 발생했습니다")
+    #개발자에게 메일을 보낸다. 
+#raise 예외객체
+raise Exception("안녕하세요")
